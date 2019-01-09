@@ -41,7 +41,9 @@ When considering OOV accuracy, our "character level ELMo" model outperforms our 
 #### Parameters:
   - **batch_size**: batch size for the word segmentation model, default: `64`.
   - **device**: the GPU device to run you model, default: `'cpu'`.
-  - **embedding**: if you choose `'elmo'`, the model will be the "character level ELMo" model above; if you choose `'w2v'`, the model will be the "baseline model" above.
+  - **embedding**: 
+    - `'elmo'`: the loaded model will be the "character level ELMo" model above, which runs slow.
+    - `'w2v'`: the loaded model will be the "baseline model" above, which runs faster than `'elmo'`.
   - **elmo_use_cuda**: if you want your ELMo model be accelerated on GPU, use `True`, otherwise the ELMo model will be run on CPU. This param is no use when `embedding='w2v'`. default: `True`.
   - **mode**: Seger will load different model according to the mode as listed below: (default: `TW`)
     - `TW`: trained on AS corpus, from Academia Sinica, Taiwan.
