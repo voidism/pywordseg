@@ -1,5 +1,5 @@
 # NTUseg
-基於 BiLSTM 及 ELMo，State-of-the-art 的開源中文斷詞系統。  
+基於 BiLSTM 及 ELMo 的 State-of-the-art 開源中文斷詞系統。  
 An open source state-of-the-art Chinese word segmentation system with BiLSTM and ELMo.
 
 
@@ -18,6 +18,12 @@ When considering OOV accuracy, our "character level ELMo" model outperforms our 
 ### Download the code and models
   - `$ git clone https://github.com/voidism/ntuseg`
   - download [ELMoForManyLangs.zip](https://www.dropbox.com/s/eiya6ztmjopprsm/ELMoForManyLangs.zip?dl=0) and unzip it to the main directory
+### Dependency
+```
+python3.6 (do not use 3.5)
+pytorch0.4
+overrides
+```
 ### Segment!
   ```python
   from ntuseg import *
@@ -27,10 +33,10 @@ When considering OOV accuracy, our "character level ELMo" model outperforms our 
   ```
 #### Parameters:
   - **batch_size**: batch size for the word segmentation model, default: `64`.
-  - **device**: the GPU device to put you model, default: `'cpu'`.
+  - **device**: the GPU device to run you model, default: `'cpu'`.
   - **embedding**: if you choose `'elmo'`, the model will be the "character level ELMo" model above; if you choose `'w2v'`, the model will be the "baseline model" above.
-  - **elmo_use_cuda**: if you want your ELMo model be accelerated on GPU, use True, elsewise the ELMo model will be run on CPU. This param is no use when `embedding='w2v'`.
-  - **mode**: Seger will load different model according to the mode as listed below:
+  - **elmo_use_cuda**: if you want your ELMo model be accelerated on GPU, use `True`, otherwise the ELMo model will be run on CPU. This param is no use when `embedding='w2v'`. default: `True`.
+  - **mode**: Seger will load different model according to the mode as listed below: (default: `TW`)
     - `TW`: trained on AS corpus, from Academia Sinica, Taiwan.
     - `HK`: trained on CityU corpus, from City University of Hong Kong.
     - `CN_MSR`: trained on MSR corpus, from Microsoft Research.
