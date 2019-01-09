@@ -22,7 +22,7 @@ When considering OOV accuracy, our "character level ELMo" model outperforms our 
 
 ### Download the code and models
   - `$ git clone https://github.com/voidism/ntuseg`
-  - download [ELMoForManyLangs.zip](https://www.dropbox.com/s/eiya6ztmjopprsm/ELMoForManyLangs.zip?dl=0) and unzip it to the main directory
+  - download [ELMoForManyLangs.zip](https://www.dropbox.com/s/eiya6ztmjopprsm/ELMoForManyLangs.zip?dl=0) and unzip it to the main directory (the code of the ELMo model is from [HIT-SCIR](https://github.com/HIT-SCIR/ELMoForManyLangs), training by myself with character-level)
 
 ### Segment!
   ```python
