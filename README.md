@@ -18,18 +18,22 @@ When considering OOV accuracy, our "character level ELMo" model outperforms our 
 ### Download the code and models
   - `$ git clone https://github.com/voidism/ntuseg`
   - download [ELMoForManyLangs.zip](https://www.dropbox.com/s/eiya6ztmjopprsm/ELMoForManyLangs.zip?dl=0) and unzip it to the main directory
-### Dependency
-```
-python3.6 (do not use 3.5)
-pytorch0.4
-overrides
-```
+### Requirements
+- python >= 3.6 (do not use 3.5)
+- pytorch 0.4
+- overrides
+
 ### Segment!
   ```python
   from ntuseg import *
+  # declare the segmentor.
   seg = Seger(batch_size=64, device="cuda:0", embedding='elmo', elmo_use_cuda=True, mode="TW")
+  
+  # input is a list of raw sentences.
   seg.cut(["今天天氣真好啊!", "潮水退了就知道，誰沒穿褲子。"])
+  
   # will return a list of lists of the segmented sentences.
+  # [['今天', '天氣', '真', '好', '啊', '!'], ['潮水', '退', '了', '就', '知道', ',', '誰', '沒', '穿', '褲子', '。']]
   ```
 #### Parameters:
   - **batch_size**: batch size for the word segmentation model, default: `64`.
