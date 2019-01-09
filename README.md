@@ -19,7 +19,7 @@ When considering OOV accuracy, our "character level ELMo" model outperforms our 
   - `$ git clone https://github.com/voidism/ntuseg`
   - download [ELMoForManyLangs.zip](https://www.dropbox.com/s/eiya6ztmjopprsm/ELMoForManyLangs.zip?dl=0) and unzip it to the main directory
 ### Segment!
-  ```
+  ```python
   from ntuseg import *
   seg = Seger(batch_size=64, device="cuda:0", embedding='elmo', elmo_use_cuda=True, mode="TW")
   seg.cut(["今天天氣真好啊!", "潮水退了就知道，誰沒穿褲子。"])
