@@ -26,11 +26,11 @@ When considering OOV accuracy, our "character level ELMo" model outperforms our 
   # will return a list of lists of the segmented sentences.
   ```
 #### Parameters:
-  - batch_size: batch size for the word segmentation model, default: 64.
-  - device: the GPU device to put you model, default: "cpu".
-  - embedding: if you choose 'elmo', the model will be the "character level ELMo" model above; if you choose 'w2v', the model will be the "baseline model" above.
-  - elmo_use_cuda: if you want your ELMo model be accelerated on GPU, use True, elsewise the ELMo model will be run on CPU. This param is no use when embedding="w2v".
-  - mode: Seger will load different model according to the mode as listed below:
+  - **batch_size**: batch size for the word segmentation model, default: `64`.
+  - **device**: the GPU device to put you model, default: `'cpu'`.
+  - **embedding**: if you choose `'elmo'`, the model will be the "character level ELMo" model above; if you choose `'w2v'`, the model will be the "baseline model" above.
+  - **elmo_use_cuda**: if you want your ELMo model be accelerated on GPU, use True, elsewise the ELMo model will be run on CPU. This param is no use when `embedding='w2v'`.
+  - **mode**: Seger will load different model according to the mode as listed below:
     - `TW`: trained on AS corpus, from Academia Sinica, Taiwan.
     - `HK`: trained on CityU corpus, from City University of Hong Kong.
     - `CN_MSR`: trained on MSR corpus, from Microsoft Research.
