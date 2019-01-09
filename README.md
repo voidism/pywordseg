@@ -25,7 +25,9 @@ When considering OOV accuracy, our "character level ELMo" model outperforms our 
 
 ### Segment!
   ```python
+  # import the module
   from ntuseg import *
+  
   # declare the segmentor.
   seg = Seger(batch_size=64, device="cuda:0", embedding='elmo', elmo_use_cuda=True, mode="TW")
   
