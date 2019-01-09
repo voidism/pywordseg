@@ -14,14 +14,15 @@ This repo provides the "character level ELMo" model and "baseline model" in the 
 當處理未見詞時，"character level ELMo" model 仍然保有不錯的正確率，相較於"baseline model"。  
 When considering OOV accuracy, our "character level ELMo" model outperforms our "baseline model" about 5%.
 
-## How to use?
-### Download the code and models
-  - `$ git clone https://github.com/voidism/ntuseg`
-  - download [ELMoForManyLangs.zip](https://www.dropbox.com/s/eiya6ztmjopprsm/ELMoForManyLangs.zip?dl=0) and unzip it to the main directory
+## Usage
 ### Requirements
 - python >= 3.6 (do not use 3.5)
 - pytorch 0.4
 - overrides
+
+### Download the code and models
+  - `$ git clone https://github.com/voidism/ntuseg`
+  - download [ELMoForManyLangs.zip](https://www.dropbox.com/s/eiya6ztmjopprsm/ELMoForManyLangs.zip?dl=0) and unzip it to the main directory
 
 ### Segment!
   ```python
@@ -48,3 +49,5 @@ When considering OOV accuracy, our "character level ELMo" model outperforms our 
     - `CN_MSR`: trained on MSR corpus, from Microsoft Research.
     - `CN_PKU` or `CN`: trained on PKU corpus, from Peking University.
   
+### To do
+- 目前只支援繁體中文(即使選擇CN mode，文字也要轉換成繁體才能運作，目前訓練資料都是經過[OpenCC](https://github.com/BYVoid/OpenCC)轉換的)，日後會加入簡體中文。
