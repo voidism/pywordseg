@@ -190,7 +190,7 @@ class Seger(nn.Module):
         if embedding not in ["elmo", "w2v"]:
             raise Exception('embedding should be "elmo" or "w2v".')
         model_path = mode + model_path if mode != "CN" else "CN_PKU" + model_path
-        model_path = os.path.join("elmo",model_path) if quality=="high" else os.path.join("w2v", model_path)
+        model_path = os.path.join("elmo",model_path) if (embedding=="elmo") else os.path.join("w2v", model_path)
         model_path = os.path.join("models",model_path)
 
         self.utils = Utils(w2v=(embedding=="w2v"),elmo_device=elmo_device)
@@ -255,5 +255,5 @@ class Seger(nn.Module):
         print("%s load!"%filename)
 
 if __name__ == "__main__":
-    seg = Seger(device="cuda:1", mode="HK")
+    seg = Seger(device="cuda:1", mode="TW")
     print(seg.cut(["今天天氣真好啊!", "潮水退了就知道，誰沒穿褲子。"]))
