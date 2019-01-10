@@ -22,12 +22,12 @@ When considering OOV accuracy, our "character level ELMo" model outperforms our 
 
 ### Install with Pip
   - `$ pip install pywordseg`
-  - the module will automatically download the models while your first import for about 3 minutes.
+  - the module will automatically download the models while your first import for about 2 minutes.
 
 ### Install manually
   - `$ git clone https://github.com/voidism/pywordseg`
   - download [ELMoForManyLangs.zip](https://www.dropbox.com/s/eiya6ztmjopprsm/ELMoForManyLangs.zip?dl=0) and unzip it to the `pywordseg/pywordseg` (the code of the ELMo model is from [HIT-SCIR](https://github.com/HIT-SCIR/ELMoForManyLangs), training by myself in character-level)
-  - `pip install .` under the main directory
+  - `$ pip install .` under the main directory
 
 ### Segment!
   ```python
