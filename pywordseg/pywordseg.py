@@ -45,7 +45,7 @@ def sort_by(li, piv=2, unsort=False):
 
 class W2V_Embedder():
     def __init__(self, seq_len=0):
-        self.syn0 = np.load("CharEmb/word2vec_weights.npy")
+        self.syn0 = np.load(os.path.join(os.path.abspath(os.path.join(__file__ ,"..")), "CharEmb/word2vec_weights.npy"))
         self.word2idx = json.load(open("CharEmb/word2idx.json"))
         self.seq_len = seq_len
 
