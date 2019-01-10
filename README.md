@@ -22,7 +22,7 @@ When considering OOV accuracy, our "character level ELMo" model outperforms our 
 
 ### Install with Pip
   - `$ pip install pywordseg`
-  - the module will automatically download the models while your first import for about 2 minutes.
+  - the module will automatically download the models while your first import for about 1 minute.
 
 ### Install manually
   - `$ git clone https://github.com/voidism/pywordseg`

@@ -150,7 +150,9 @@ class Utils():
         for char in line:
             if self.eng_gex.findall(char).__len__() == 0:
                 if temp_str.__len__() > 0:
-                    ret.append("".join(temp_str).strip())
+                    stript = "".join(temp_str).strip()
+                    if stript.__len__() > 0:
+                        ret.append(stript)
                     temp_str = []
                 ret.append(char)
             else:
