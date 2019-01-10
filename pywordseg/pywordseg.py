@@ -2,7 +2,7 @@ import re
 import torch
 from torch import nn
 import os
-from ELMoForManyLangs import elmo
+from .ELMoForManyLangs import elmo
 import numpy as np
 import math
 import json
@@ -192,6 +192,7 @@ class Wordseg(nn.Module):
         model_path = mode + model_path if mode != "CN" else "CN_PKU" + model_path
         model_path = os.path.join("elmo",model_path) if (embedding=="elmo") else os.path.join("w2v", model_path)
         model_path = os.path.join("models",model_path)
+        model_path = os.path.join(os.path.abspath(os.path.join(__file__ ,"..")), model_path)
 
         self.utils = Utils(w2v=(embedding=="w2v"),elmo_device=elmo_device)
         self.device = device if torch.cuda.is_available() else "cpu"
@@ -252,7 +253,6 @@ class Wordseg(nn.Module):
         if device == None:
             device = self.device
         self.load_state_dict(torch.load(filename, map_location=device))
-        print("%s load!"%filename)
 
 if __name__ == "__main__":
     seg = Wordseg(device="cuda:1", mode="TW")

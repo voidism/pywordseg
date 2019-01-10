@@ -1,0 +1,3 @@
+recursive-include pywordseg/ELMoForManyLangs *
+recursive-include pywordseg/models *
+recursive-include pywordseg/CharEmb *
