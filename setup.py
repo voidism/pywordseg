@@ -3,7 +3,7 @@ import setuptools
 
 setuptools.setup(
   name="pywordseg",
-  version="0.0.1",
+  version="0.0.3",
   author="Jexus Chuang",
   description="Open-source state-of-the-art Chinese word segmentation toolkit",
   url="https://github.com/voidism/pywordseg",
@@ -20,5 +20,5 @@ setuptools.setup(
     "Programming Language :: Python",
     "Programming Language :: Python :: 3.6",
   ],
-  include_package_data=True
+  exclude_package_date={'':['.gitignore','.git']}#, 'pywordseg':['models','ELMoForManyLangs','CharEmb']}
 )

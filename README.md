@@ -20,7 +20,10 @@ When considering OOV accuracy, our "character level ELMo" model outperforms our 
 - pytorch 0.4
 - overrides
 
-### Download the code and models
+### Install with Pip
+  - `$ pip install pywordseg`
+
+### Install manually
   - `$ git clone https://github.com/voidism/pywordseg`
   - download [ELMoForManyLangs.zip](https://www.dropbox.com/s/eiya6ztmjopprsm/ELMoForManyLangs.zip?dl=0) and unzip it to the `pywordseg/pywordseg` (the code of the ELMo model is from [HIT-SCIR](https://github.com/HIT-SCIR/ELMoForManyLangs), training by myself in character-level)
   - `pip install .` under the main directory
