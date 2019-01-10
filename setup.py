@@ -3,7 +3,7 @@ import setuptools
 
 setuptools.setup(
   name="pywordseg",
-  version="0.0.3",
+  version="0.0.5",
   author="Jexus Chuang",
   description="Open-source state-of-the-art Chinese word segmentation toolkit",
   url="https://github.com/voidism/pywordseg",
