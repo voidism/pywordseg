@@ -174,7 +174,7 @@ class Utils():
 class Wordseg(nn.Module):
     def __init__(self,
         batch_size=64,
-        embedding='elmo',
+        embedding='w2v',
         device="cpu",
         elmo_use_cuda=True,
         mode="TW"):

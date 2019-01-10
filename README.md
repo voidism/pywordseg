@@ -41,7 +41,7 @@ When considering OOV accuracy, our "character level ELMo" model outperforms our 
 #### Parameters:
   - **batch_size**: batch size for the word segmentation model, default: `64`.
   - **device**: the CPU/GPU device to run you model, default: `'cpu'`.
-  - **embedding**: 
+  - **embedding**: (default: `'w2v'`) 
     - `'elmo'`: the loaded model will be the "character level ELMo" model above, which runs slow.
     - `'w2v'`: the loaded model will be the "baseline model" above, which runs faster than `'elmo'`.
   - **elmo_use_cuda**: if you want your ELMo model be accelerated on GPU, use `True`, otherwise the ELMo model will be run on CPU. This param is no use when `embedding='w2v'`. default: `True`.
@@ -52,4 +52,4 @@ When considering OOV accuracy, our "character level ELMo" model outperforms our 
     - `CN_PKU` or `CN`: trained on PKU corpus, from Peking University, China.
 
 ### TODO
-- 目前只支援繁體中文(即使選擇CN mode，文字也要轉換成繁體才能運作，目前訓練資料都是經過[OpenCC](https://github.com/BYVoid/OpenCC)轉換的)，日後會加入簡體中文。
+- 目前只支援繁體中文(即使選擇CN mode，文字也要轉換成繁體才能運作，目前訓練資料都是經過 [OpenCC](https://github.com/BYVoid/OpenCC) 轉換的)，日後會加入簡體中文。
