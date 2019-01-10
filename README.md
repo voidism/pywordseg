@@ -1,4 +1,4 @@
-# NTUseg
+# pywordseg
 基於 BiLSTM 及 ELMo 的 State-of-the-art 開源中文斷詞系統。  
 An open source state-of-the-art Chinese word segmentation system with BiLSTM and ELMo.
 
@@ -21,16 +21,16 @@ When considering OOV accuracy, our "character level ELMo" model outperforms our 
 - overrides
 
 ### Download the code and models
-  - `$ git clone https://github.com/voidism/ntuseg`
+  - `$ git clone https://github.com/voidism/pywordseg`
   - download [ELMoForManyLangs.zip](https://www.dropbox.com/s/eiya6ztmjopprsm/ELMoForManyLangs.zip?dl=0) and unzip it to the main directory (the code of the ELMo model is from [HIT-SCIR](https://github.com/HIT-SCIR/ELMoForManyLangs), training by myself with character-level)
 
 ### Segment!
   ```python
   # import the module
-  from ntuseg import *
+  from pywordseg import *
   
   # declare the segmentor.
-  seg = Seger(batch_size=64, device="cuda:0", embedding='elmo', elmo_use_cuda=True, mode="TW")
+  seg = Wordseg(batch_size=64, device="cuda:0", embedding='elmo', elmo_use_cuda=True, mode="TW")
   
   # input is a list of raw sentences.
   seg.cut(["今天天氣真好啊!", "潮水退了就知道，誰沒穿褲子。"])

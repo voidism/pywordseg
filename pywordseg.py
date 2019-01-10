@@ -171,14 +171,14 @@ class Utils():
             s[i] = chr(num).translate(str.maketrans('﹕﹐﹑。﹔﹖﹗﹘　', ':,、。;?!- '))
         return re.sub(r"( |　)+", " ", "".join(s)).strip()
 
-class Seger(nn.Module):
+class Wordseg(nn.Module):
     def __init__(self,
         batch_size=64,
         embedding='elmo',
         device="cpu",
         elmo_use_cuda=True,
         mode="TW"):
-        super(Seger, self).__init__()
+        super(Wordseg, self).__init__()
         elmo_device="cpu" if not elmo_use_cuda else "cuda:0"
         hidden_size=300
         input_size=1024
@@ -255,5 +255,5 @@ class Seger(nn.Module):
         print("%s load!"%filename)
 
 if __name__ == "__main__":
-    seg = Seger(device="cuda:1", mode="TW")
+    seg = Wordseg(device="cuda:1", mode="TW")
     print(seg.cut(["今天天氣真好啊!", "潮水退了就知道，誰沒穿褲子。"]))
