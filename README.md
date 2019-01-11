@@ -5,9 +5,8 @@ An open source state-of-the-art Chinese word segmentation system with BiLSTM and
 
 ## Performance
 ![](https://i.imgur.com/H9w9EFm.png)
-此專案提供圖中的 "character level ELMo" model 以及 "baseline" model，其中 "character level ELMo" model 是當前準確率最高。  
-這兩個 model 都贏過目前常用的斷詞系統 Jieba 及 CKIP 許多。  
-This repo provides the "character level ELMo" model and "baseline" model in the figure. Our "character level ELMo" model outperforms the previous state-of-the-art Chinese word segmentation (Ma et al. 2018), and also largely outerform "Jieba" and "CKIP", which are most popular toolkits in processing simplified/traditional Chinese text.
+此專案提供圖中的 "character level ELMo" model 以及 "baseline" model，其中 "character level ELMo" model 是當前準確率最高。這兩個 model 都贏過目前常用的斷詞系統 [Jieba](https://github.com/fxsjy/jieba) (HMM-based) 及 [CKIP](http://ckipsvr.iis.sinica.edu.tw/) (rule-based) 許多。  
+This repo provides the "character level ELMo" model and "baseline" model in the figure. Our "character level ELMo" model outperforms the previous state-of-the-art Chinese word segmentation (Ma et al. 2018), and also largely outerform "[Jieba](https://github.com/fxsjy/jieba)" and "[CKIP](http://ckipsvr.iis.sinica.edu.tw/)", which are most popular toolkits in processing simplified/traditional Chinese text.
 
 
 ![](https://i.imgur.com/Iw0zffr.png)
@@ -22,7 +21,7 @@ When considering OOV accuracy, our "character level ELMo" model outperforms our 
 
 ### Install with Pip
   - `$ pip install pywordseg`
-  - the module will automatically download the models while your first import for about 1 minute.
+  - the module will automatically download the models while your first import within 1 minute.
 
 ### Install manually
   - `$ git clone https://github.com/voidism/pywordseg`
@@ -50,7 +49,7 @@ When considering OOV accuracy, our "character level ELMo" model outperforms our 
     - `'elmo'`: the loaded model will be the "character level ELMo" model above, which runs slow.
     - `'w2v'`: the loaded model will be the "baseline model" above, which runs faster than `'elmo'`.
   - **elmo_use_cuda**: if you want your ELMo model be accelerated on GPU, use `True`, otherwise the ELMo model will be run on CPU. This param is no use when `embedding='w2v'`. default: `True`.
-  - **mode**: Seger will load different model according to the mode as listed below: (default: `TW`)
+  - **mode**: `WordSeg` will load different model according to the mode as listed below: (default: `TW`)
     - `TW`: trained on AS corpus, from CKIP, Academia Sinica, Taiwan.
     - `HK`: trained on CityU corpus, from City University of Hong Kong, Hong Kong SAR.
     - `CN_MSR`: trained on MSR corpus, from Microsoft Research, China.
