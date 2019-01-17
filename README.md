@@ -21,6 +21,7 @@ An open source state-of-the-art Chinese word segmentation system with BiLSTM and
 ### Install with Pip
   - `$ pip install pywordseg`
   - the module will automatically download the models while your first import within 1 minute.
+  - if you use MacOS and encounter the [urllib.error.URLError](https://stackoverflow.com/questions/49183801/ssl-certificate-verify-failed-with-urllib) problem, try `sudo /Applications/Python\ 3.6/Install\ Certificates.command` to bypass the certificate issue.
 
 ### Install manually
   - `$ git clone https://github.com/voidism/pywordseg`
