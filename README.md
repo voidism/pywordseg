@@ -1,6 +1,7 @@
 # Pywordseg
 基於 BiLSTM 及 ELMo 的 State-of-the-art 開源中文斷詞系統。  
-An open source state-of-the-art Chinese word segmentation system with BiLSTM and ELMo.
+An open source state-of-the-art Chinese word segmentation system with BiLSTM and ELMo.  
+
 arXiv link: https://arxiv.org/abs/1901.05816
 
 ## Performance
