@@ -2,10 +2,11 @@
 基於 BiLSTM 及 ELMo 的 State-of-the-art 開源中文斷詞系統。  
 An open source state-of-the-art Chinese word segmentation system with BiLSTM and ELMo.  
 
-arXiv link: https://arxiv.org/abs/1901.05816
+- arXiv paper link: https://arxiv.org/abs/1901.05816
+- PyPI page: https://pypi.org/project/pywordseg/
 
 ## Performance
-![](https://i.imgur.com/H9w9EFm.png)
+![](https://i.imgur.com/4WflkYS.png)
 - 此專案提供圖中的 "character level ELMo" model 以及 "baseline" model，其中 "character level ELMo" model 是當前準確率最高。這兩個 model 都贏過目前常用的斷詞系統 [Jieba](https://github.com/fxsjy/jieba) (HMM-based) 及 [CKIP](http://ckipsvr.iis.sinica.edu.tw/) (rule-based) 許多。  
 - This repo provides the "character level ELMo" model and "baseline" model in the figure. Our "character level ELMo" model outperforms the previous state-of-the-art Chinese word segmentation (Ma et al. 2018), and also largely outerform "[Jieba](https://github.com/fxsjy/jieba)" and "[CKIP](http://ckipsvr.iis.sinica.edu.tw/)", which are most popular toolkits in processing simplified/traditional Chinese text.
 
