@@ -60,3 +60,16 @@ An open source state-of-the-art Chinese word segmentation system with BiLSTM and
 
 ### TODO
 - 目前只支援繁體中文(即使選擇CN mode，文字也要轉換成繁體才能運作，目前訓練資料都是經過 [OpenCC](https://github.com/BYVoid/OpenCC) 轉換的)，日後會加入簡體中文。
+
+### Citation
+If you use the code in your paper, then please cite it as:
+
+    @article{Chuang2019,
+      archivePrefix = {arXiv},
+      arxivId       = {1901.05816},
+      author        = {Chuang, Yung-Sung},
+      eprint        = {1901.05816},
+      title         = {Robust Chinese Word Segmentation with Contextualized Word Representations},
+      url           = {http://arxiv.org/abs/1901.05816},
+      year          = {2019}
+    }
