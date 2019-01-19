@@ -6,9 +6,9 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setuptools.setup(
   name="pywordseg",
-  version="0.0.9",
+  version="0.1.1",
   author="Jexus Chuang",
-  description="Open-source state-of-the-art Chinese word segmentation toolkit",
+  description="Open source state-of-the-art Chinese word segmentation toolkit",
   long_description=long_description,
   long_description_content_type='text/markdown',
   url="https://github.com/voidism/pywordseg",
@@ -25,5 +25,5 @@ setuptools.setup(
     "Programming Language :: Python",
     "Programming Language :: Python :: 3.6",
   ],
-  exclude_package_date={'':['.gitignore','.git']}#, 'pywordseg':['models','ELMoForManyLangs','CharEmb']}
+  exclude_package_date={'':['.gitignore','.git','models','ELMoForManyLangs','CharEmb']}
 )
