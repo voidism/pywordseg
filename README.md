@@ -58,10 +58,10 @@ An open source state-of-the-art Chinese word segmentation system with BiLSTM and
     - `CN_MSR`: trained on MSR corpus, from Microsoft Research, China.
     - `CN_PKU` or `CN`: trained on PKU corpus, from Peking University, China.
 
-### TODO
+## TODO
 - 目前只支援繁體中文(即使選擇CN mode，文字也要轉換成繁體才能運作，目前訓練資料都是經過 [OpenCC](https://github.com/BYVoid/OpenCC) 轉換的)，日後會加入簡體中文。
 
-### Citation
+## Citation
 If you use the code in your paper, then please cite it as:
 
     @article{Chuang2019,
