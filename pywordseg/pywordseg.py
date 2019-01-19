@@ -217,9 +217,16 @@ class Wordseg(nn.Module):
         return pred_prob
 
     def cut(self, sents):
+        empty_pos = []
+        valid_sents = []
         for i in range(len(sents)):
-            sents[i] = self.utils.string2list(self.utils.f2h(sents[i]))
-        ret = self.test(sents, unsort=True)
+            if len(sents[i])==0:
+                empty_pos.append(i)
+            else:
+                valid_sents.append(self.utils.string2list(self.utils.f2h(sents[i])))
+        if valid_sents == []:
+            return [[] for _ in empty_pos]
+        ret = self.test(valid_sents, unsort=True)
         new_ret = []
         for sent in ret:
             new_ret.append([])
@@ -228,6 +235,9 @@ class Wordseg(nn.Module):
                     new_ret[-1] += word.split(' ')
                 else:
                     new_ret[-1].append(word)
+        if empty_pos != []:
+            for i in empty_pos:
+                new_ret.insert(i, [])
         return new_ret
 
     def test(self, sents, unsort=False):
