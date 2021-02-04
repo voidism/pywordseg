@@ -45,6 +45,47 @@ An open source state-of-the-art Chinese word segmentation system with BiLSTM and
   # will return a list of lists of the segmented sentences.
   # [['今天', '天氣', '真', '好', '啊', '!'], ['潮水', '退', '了', '就', '知道', ',', '誰', '沒', '穿', '褲子', '。']]
   ```
+### External Dictionary (Optional)
+This feature was inspired by [CKIPTagger](https://github.com/ckiplab/ckiptagger#3-optional-create-dictionary).
+  ```python
+  # import the module
+  from pywordseg import *
+  
+  # declare the segmentor.
+  seg = Wordseg(batch_size=64, device="cuda:0", embedding='elmo', elmo_use_cuda=True, mode="TW")
+
+  # create dictionary with their relative weights to prioritize.
+  word_to_weight = {
+    "來辦": 2.0,
+    "你本人": 1.0,
+    "或者是": 1.0,
+    "有興趣": 1.0,
+    "有興趣的": "2.0",
+  }
+  dictionary = construct_dictionary(word_to_weight)
+  print(dictionary)
+  # [(2, {'來辦': 2.0}), (3, {'你本人': 1.0, '或者是': 1.0, '有興趣': 1.0}), (4, {'有興趣的': 2.0})]
+
+  # 1) segment without dictionary.
+  seg.cut(["你本人或者是親屬有興趣的話都可以來辦理"])
+  # [['你', '本人', '或者', '是', '親屬', '有', '興趣', '的話', '都', '可以', '來', '辦理']]
+
+  # 2) segment with dictionary to merge words (only merge words that will not break existing words).
+  seg.cut(["你本人或者是親屬有興趣的話都可以來辦理"], merge_dict=dictionary)
+  # [['你本人', '或者是', '親屬', '有興趣', '的話', '都', '可以', '來', '辦理']]
+  # merged: '你', '本人' --> '你本人'
+  # merged: '或者', '是' --> '或者是'
+  # merged: '有', '興趣' --> '有興趣'
+  # not merged: '來', '辦理' -x-> '來辦', '理' because it breaks existing words
+
+  # 3) segment with dictionary that force words to be segmented (ignore existing words).
+  seg.cut(["你本人或者是親屬有興趣的話都可以來辦理"], force_dict=dictionary)
+  # [['你本人', '或者是', '親屬', '有興趣的', '話', '都', '可以', '來辦', '理']]
+  # merged: '你', '本人' --> '你本人'
+  # merged: '或者', '是' --> '或者是'
+  # change: '有興趣', '的話' --> '有興趣的', '話'
+  # change: '來', '辦理' --> '來辦', '理'
+  ```
 #### Parameters:
   - **batch_size**: batch size for the word segmentation model, default: `64`.
   - **device**: the CPU/GPU device to run you model, default: `'cpu'`.

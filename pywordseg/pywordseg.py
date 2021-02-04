@@ -3,6 +3,7 @@ import torch
 from torch import nn
 import os
 from .ELMoForManyLangs import elmo
+from .postprocessing import _run_word_segmentation_with_dictionary, construct_dictionary
 import numpy as np
 import math
 import json
@@ -216,7 +217,7 @@ class Wordseg(nn.Module):
         embedded.cpu()
         return pred_prob
 
-    def cut(self, sents):
+    def cut(self, sents, merge_dict=None, force_dict=None):
         empty_pos = []
         valid_sents = []
         for i in range(len(sents)):
@@ -238,7 +239,16 @@ class Wordseg(nn.Module):
         if empty_pos != []:
             for i in empty_pos:
                 new_ret.insert(i, [])
-        return new_ret
+        if merge_dict is not None or force_dict is not None:
+            refine_ret = []
+            for sent in new_ret:
+                if len(sent) == 0:
+                    refine_ret.append([])
+                else:
+                    refine_ret.append(_run_word_segmentation_with_dictionary(sent, recommend_dictionary=merge_dict, coerce_dictionary=force_dict))
+            return refine_ret
+        else:
+            return new_ret
 
     def test(self, sents, unsort=False):
         embedded, seq_lens = self.utils.elmo(sents)

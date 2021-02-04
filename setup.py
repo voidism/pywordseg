@@ -6,7 +6,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setuptools.setup(
   name="pywordseg",
-  version="0.1.1",
+  version="0.1.2",
   author="Jexus Chuang",
   description="Open source state-of-the-art Chinese word segmentation toolkit",
   long_description=long_description,

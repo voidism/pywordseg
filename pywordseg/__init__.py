@@ -18,3 +18,4 @@ if not os.path.isdir(os.path.join(os.path.abspath(os.path.join(__file__ ,"..")),
     url = "https://www.dropbox.com/s/eiya6ztmjopprsm/ELMoForManyLangs.zip?dl=1"
     save_unzip(url, filename)
 from .pywordseg import Wordseg
+from .postprocessing import construct_dictionary
