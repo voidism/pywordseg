@@ -45,7 +45,20 @@ An open source state-of-the-art Chinese word segmentation system with BiLSTM and
   # will return a list of lists of the segmented sentences.
   # [['今天', '天氣', '真', '好', '啊', '!'], ['潮水', '退', '了', '就', '知道', ',', '誰', '沒', '穿', '褲子', '。']]
   ```
-### External Dictionary (Optional)
+#### Parameters:
+  - **batch_size**: batch size for the word segmentation model, default: `64`.
+  - **device**: the CPU/GPU device to run you model, default: `'cpu'`.
+  - **embedding**: (default: `'w2v'`) 
+    - `'elmo'`: the loaded model will be the "character level ELMo" model above, which runs slow.
+    - `'w2v'`: the loaded model will be the "baseline model" above, which runs faster than `'elmo'`.
+  - **elmo_use_cuda**: if you want your ELMo model be accelerated on GPU, use `True`, otherwise the ELMo model will be run on CPU. This param is no use when `embedding='w2v'`. default: `True`.
+  - **mode**: `WordSeg` will load different model according to the mode as listed below: (default: `TW`)
+    - `TW`: trained on AS corpus, from CKIP, Academia Sinica, Taiwan.
+    - `HK`: trained on CityU corpus, from City University of Hong Kong, Hong Kong SAR.
+    - `CN_MSR`: trained on MSR corpus, from Microsoft Research, China.
+    - `CN_PKU` or `CN`: trained on PKU corpus, from Peking University, China.
+
+### Include External Dictionary (Optional)
 This feature was inspired by [CKIPTagger](https://github.com/ckiplab/ckiptagger#3-optional-create-dictionary).
   ```python
   # import the module
@@ -86,18 +99,6 @@ This feature was inspired by [CKIPTagger](https://github.com/ckiplab/ckiptagger#
   # change: '有興趣', '的話' --> '有興趣的', '話'
   # change: '來', '辦理' --> '來辦', '理'
   ```
-#### Parameters:
-  - **batch_size**: batch size for the word segmentation model, default: `64`.
-  - **device**: the CPU/GPU device to run you model, default: `'cpu'`.
-  - **embedding**: (default: `'w2v'`) 
-    - `'elmo'`: the loaded model will be the "character level ELMo" model above, which runs slow.
-    - `'w2v'`: the loaded model will be the "baseline model" above, which runs faster than `'elmo'`.
-  - **elmo_use_cuda**: if you want your ELMo model be accelerated on GPU, use `True`, otherwise the ELMo model will be run on CPU. This param is no use when `embedding='w2v'`. default: `True`.
-  - **mode**: `WordSeg` will load different model according to the mode as listed below: (default: `TW`)
-    - `TW`: trained on AS corpus, from CKIP, Academia Sinica, Taiwan.
-    - `HK`: trained on CityU corpus, from City University of Hong Kong, Hong Kong SAR.
-    - `CN_MSR`: trained on MSR corpus, from Microsoft Research, China.
-    - `CN_PKU` or `CN`: trained on PKU corpus, from Peking University, China.
 
 ## TODO
 - 目前只支援繁體中文(即使選擇CN mode，文字也要轉換成繁體才能運作，目前訓練資料都是經過 [OpenCC](https://github.com/BYVoid/OpenCC) 轉換的)，日後會加入簡體中文。
