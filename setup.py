@@ -18,7 +18,7 @@ setuptools.setup(
     "torch",
     "h5py",
     "numpy",
-    "overrides",
+    "overrides==1.9",
   ],
   classifiers=[
     "Development Status :: 2 - Pre-Alpha",
